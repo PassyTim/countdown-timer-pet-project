@@ -10,4 +10,3 @@ namespace countdown_timer_pet_project;
 public partial class App : Application
 {
 }
-
