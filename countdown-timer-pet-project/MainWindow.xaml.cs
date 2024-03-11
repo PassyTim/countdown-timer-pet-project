@@ -12,7 +12,7 @@ namespace countdown_timer_pet_project;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow() 
     {
         InitializeComponent();
         DataContext = new ViewModel();
@@ -52,6 +52,7 @@ public partial class MainWindow : Window
                 if (_timerInput != value)
                 {
                     _timerInput = value;
+                    TimerValue = _timerInput;
                     OnPropertyChanged();
                 }
             }
@@ -78,14 +79,14 @@ public partial class MainWindow : Window
 
         private void TimerCallback(object state)
         {
-            if (TimerValue >= TimerInput)
+            if (TimerValue <= 0)
             {
                 StopTimer(null);
                 MessageBox.Show("Сountdown completed");
             }
             else
             {
-                TimerValue++;
+                TimerValue--;
             }
         }
         
