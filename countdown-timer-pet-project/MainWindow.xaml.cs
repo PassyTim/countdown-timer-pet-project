@@ -30,7 +30,7 @@ public partial class MainWindow : Window
             StopCommand = new CommandController(StopTimer);
             ResetCommand = new CommandController(ResetTimer);
         }
-
+        
         public int TimerValue
         {
             get => _timerValue;
@@ -64,7 +64,7 @@ public partial class MainWindow : Window
 
         private void StartTimer(object parameter)
         {
-            _timer = new Timer(TimerCallback, null, 0, 1000);
+            _timer = new Timer(TimerCallback!, null, 1000, 1000);
         }
 
         private void StopTimer(object parameter) => _timer?.Dispose();
@@ -72,7 +72,7 @@ public partial class MainWindow : Window
         private void ResetTimer(object parameter)
         {
             _timer?.Dispose();
-            TimerValue = 0;
+            TimerInput = 0;
         }
 
         private bool CanStartTimer(object parameter) => TimerInput > 0;
@@ -82,6 +82,7 @@ public partial class MainWindow : Window
             if (TimerValue <= 0)
             {
                 StopTimer(null);
+                TimerInput = 0;
                 MessageBox.Show("Сountdown completed");
             }
             else

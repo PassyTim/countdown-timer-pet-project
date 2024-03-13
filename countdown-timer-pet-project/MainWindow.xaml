@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding TimerValue}" FontSize="24" HorizontalAlignment="Center"/>
-            <TextBox Text="{Binding TimerInput}" Width="100" HorizontalAlignment="Center" Margin="0,10"/>
+            <TextBox Text="{Binding TimerInput, UpdateSourceTrigger = PropertyChanged}" Width="100" HorizontalAlignment="Center" Margin="0,10"/>
             <Button Content="Start Timer" Command="{Binding StartCommand}" Margin="0,10"/>
             <Button Content="Stop Timer" Command="{Binding StopCommand}" Margin="0,10"/>
             <Button Content="Reset Timer" Command="{Binding ResetCommand}" Margin="0,10"/>
